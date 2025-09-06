@@ -1,0 +1,24 @@
+# Core
+Django==5.0.3
+djangorestframework==3.15.0
+
+# API Documentation
+drf-yasg==1.21.7
+
+# Database
+psycopg2-binary==2.9.9   # PostgreSQL driver
+
+# Authentication & Security
+djangorestframework-simplejwt==5.3.1
+
+# Environment Variables
+python-decouple==3.8
+
+# CORS handling (for React frontend integration)
+django-cors-headers==4.4.0
+
+# Payments (you may integrate later)
+requests==2.32.3
+
+# Utilities
+Pillow==10.3.0   # Image support (profile pics, receipts)
