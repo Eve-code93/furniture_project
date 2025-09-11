@@ -45,6 +45,7 @@ urlpatterns = [
     path("", home, name="home"),
     path('api/accounts/', include('accounts.urls')),
     path('api/customers/', include('customers.urls')),
+    path('api/products/', include('products.urls')),
     #path('api/orders/', include('order_management.urls')),
    # path('api/payments/', include('payments.urls')),
     path('api/notifications/', include('notifications.urls')),

@@ -46,10 +46,13 @@ INSTALLED_APPS = [
 
     'accounts',
     'customers',
+    'products',
     'notifications',
     'order_management',
     'payments',
     'reports',
+   
+
 ]
 
 MIDDLEWARE = [
@@ -140,12 +143,19 @@ AUTH_USER_MODEL = "accounts.User"
 AUTHENTICATION_BACKENDS = [
     "accounts.auth_backends.PhoneOrEmailBackend",
     "django.contrib.auth.backends.ModelBackend",
+    
 ]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ),
 }
 
 CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
