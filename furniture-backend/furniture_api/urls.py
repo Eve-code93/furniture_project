@@ -44,10 +44,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
     path('api/accounts/', include('accounts.urls')),
-   # path('api/customers/', include('customers.urls')),
+    path('api/customers/', include('customers.urls')),
     #path('api/orders/', include('order_management.urls')),
    # path('api/payments/', include('payments.urls')),
-    #path('api/notifications/', include('notifications.urls')),
+    path('api/notifications/', include('notifications.urls')),
     #path('api/reports/', include('reports.urls')),
 
     # Swagger UI

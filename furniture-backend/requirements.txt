@@ -22,3 +22,7 @@ requests==2.32.3
 
 # Utilities
 Pillow==10.3.0   # Image support (profile pics, receipts)
+
+# Celery for background tasks (e.g., sending emails)
+celery==5.3.1
+redis==4.5.5
