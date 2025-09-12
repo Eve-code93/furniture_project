@@ -1,12 +1,11 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import UserSerializer, RegisterSerializer, CustomTokenObtainPairSerializer
-from django.contrib.auth import get_user_model
-from rest_framework.views import APIView 
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import status
-
+from django.contrib.auth import get_user_model
+from rest_framework.exceptions import AuthenticationFailed
+from .serializers import UserSerializer, RegisterSerializer, CustomTokenObtainPairSerializer
 
 User = get_user_model()
 
@@ -26,7 +25,11 @@ class ProfileView(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):
+        if not self.request.user.is_authenticated:
+            raise AuthenticationFailed("User not authenticated.")
         return self.request.user
+
+
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
