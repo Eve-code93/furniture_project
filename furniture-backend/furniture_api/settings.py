@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'order_management',
     'payments',
     'reports',
+    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -169,11 +170,6 @@ SIMPLE_JWT = {
 # CORS Settings
 # -------------------------
 CORS_ALLOW_ALL_ORIGINS = True
-# In production, use:
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "https://yourfrontend.com",
-# ]
 
 # -------------------------
 # Celery Settings
@@ -184,3 +180,16 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'Enter your JWT token as: Bearer <your_access_token>'
+        }
+    },
+    'USE_SESSION_AUTH': False,  # Disable Django login popup
+}
