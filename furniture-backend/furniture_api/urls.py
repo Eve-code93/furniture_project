@@ -51,6 +51,7 @@ urlpatterns = [
    # path('api/payments/', include('payments.urls')),
     path('api/notifications/', include('notifications.urls')),
     #path('api/reports/', include('reports.urls')),
+    path('api/promotions/', include('promotions.urls')),
 
     # Swagger UI
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
