@@ -48,9 +48,9 @@ urlpatterns = [
     path('api/products/', include('products.urls')),
     path('api/orders/', include('order_management.urls')),
     path('api/inventory/', include('inventory.urls')),
-   # path('api/payments/', include('payments.urls')),
+    path('api/payments/', include('payments.urls')),
     path('api/notifications/', include('notifications.urls')),
-    #path('api/reports/', include('reports.urls')),
+    path('api/reports/', include('reports.urls')),
     path('api/promotions/', include('promotions.urls')),
 
     # Swagger UI
